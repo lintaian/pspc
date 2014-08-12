@@ -42,7 +42,9 @@ public class MainController {
 		String name = reqBody.has("username") ? reqBody.getString("username") : "";
 		String password = reqBody.has("password") ? reqBody.getString("password") : "";
 		if (name != null && !"".equals(name) && password != null && !"".equals(password)) {
-			JSONObject user = userService.login(name, password);
+//			JSONObject user = userService.login(name, password);
+			JSONObject user = new JSONObject();
+			user.put("name", name);
 			if (user != null) {
 				re.put("status", true);
 				req.getSession().setAttribute("user", user);
@@ -61,7 +63,9 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="logout")
-	public void logout(HttpServletRequest req) {
+	public void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.getSession().invalidate();
+		resp.sendRedirect(req.getScheme()+"://"+req.getServerName()+":"
+				+req.getServerPort()+req.getContextPath()+"/login");
 	}
 }

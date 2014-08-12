@@ -1,0 +1,47 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="java.util.*" pageEncoding="UTF-8"%>
+<div data-role="page" id="mainPage" class="hide">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<h1>主页</h1>
+		<a href="javascript:void(0)" data-role="button" class="ui-btn-right" 
+			data-icon="gear" data-iconpos="notext" data-custom="logout"></a>
+		<div style="position: relative;" class="hide">
+			<div style="position: absolute;right: 0px;top: -3px;">
+				<ul data-role="listview">
+				  <li><a href="logout" data-role="button" 
+				  		data-ajax="false" data-corners="false">退出</a></li>
+				  <li><a href="#updatePwd" data-role="button"
+				  		data-corners="false">修改密码</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<ul data-role="listview">
+			<li><a href="#detailedTranscripts">
+					<h2>详细成绩单</h2>
+			</a></li>
+			<li><a href="#homework">
+					<h2>作业内容</h2>
+			</a></li>
+			<li><a href="#scoreChart">
+					<h2>分数图表</h2>
+			</a></li>
+			<li><a href="#transverse">
+					<h2>个人横向</h2>
+			</a></li>
+			<li><a href="#longitudinal">
+					<h2>个人纵向</h2>
+			</a></li>
+			<li><a href="#wrongBook">
+					<h2>错题本</h2>
+			</a></li>
+			<li><a href="#messageBoard">
+					<h2>留言板</h2>
+			</a></li>
+			<li><a href="#studentStatus">
+					<h2>学生状态</h2>
+			</a></li>
+		</ul>
+	</div>
+	<%@include file="/tpl/footer.html"%>
+</div>

@@ -3,6 +3,8 @@ package com.lps.pspc.service.impl;
 import java.net.URLEncoder;
 
 import org.apache.http.entity.StringEntity;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.protocol.HTTP;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,7 @@ public class UserService extends BaseService implements UserServiceIF {
 		json.put("password", pwd);
 		String param = URLEncoder.encode(json.toString(), "utf-8");
 		StringEntity entity = new StringEntity(param);
+		entity.setContentEncoding(new BasicHeader(HTTP.CONTENT_TYPE, "application/json"));
 		JSONObject re = postForJsonObject(getLoginConfig().getUrl(), entity, getLoginConfig().getReqContentType());
 		return re;
 	}
